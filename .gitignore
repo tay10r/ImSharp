@@ -1,0 +1,6 @@
+bin
+obj
+.*filters
+.vs
+build
+install

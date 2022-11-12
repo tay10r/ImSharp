@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "ImSharp.Vulkan.Example": {
+      "commandName": "Project"
+    }
+  }
+}
