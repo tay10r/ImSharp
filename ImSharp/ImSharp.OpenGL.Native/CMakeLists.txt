@@ -1,14 +1,16 @@
 cmake_minimum_required(VERSION 3.14.7)
 
-project(ImSharp_OpenGL_Native)
+project(ImSharpNative)
+
+option(IMSHARP_NATIVE_EXAMPLE "Whether or not to build the example program." OFF)
 
 include(FetchContent)
 
-set(BUILD_SHARED_LIBS   ON  CACHE BOOL "" FORCE)
+set(BUILD_SHARED_LIBS   OFF  CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS    OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_DOCS     OFF CACHE BOOL "" FORCE)
-set(GLFW_INSTALL        ON  CACHE BOOL "" FORCE)
+set(GLFW_INSTALL        OFF CACHE BOOL "" FORCE)
 set(GLFW_VULKAN_STATIC  OFF CACHE BOOL "" FORCE)
 
 FetchContent_Declare(glfw URL "https://github.com/glfw/glfw/archive/refs/tags/3.3.8.zip")
@@ -17,6 +19,21 @@ FetchContent_MakeAvailable(glfw)
 FetchContent_Declare(imgui URL "https://github.com/ocornut/imgui/archive/refs/tags/v1.88.zip")
 FetchContent_MakeAvailable(imgui)
 FetchContent_GetProperties(imgui)
+
+include(CMakeRC.cmake)
+
+cmrc_add_resource_library(ImSharpFonts
+  fonts/JetBrainsMono/JetBrainsMonoNL-Bold.ttf
+  fonts/JetBrainsMono/JetBrainsMonoNL-Light.ttf
+  fonts/JetBrainsMono/JetBrainsMonoNL-Medium.ttf
+  fonts/JetBrainsMono/JetBrainsMonoNL-Regular.ttf
+  fonts/JetBrainsMono/JetBrainsMonoNL-Thin.ttf
+  fonts/OpenSans/OpenSans-Bold.ttf
+  fonts/OpenSans/OpenSans-Italic.ttf
+  fonts/OpenSans/OpenSans-Light.ttf
+  fonts/OpenSans/OpenSans-Medium.ttf
+  fonts/OpenSans/OpenSans-Regular.ttf
+)
 
 find_package(OpenGL REQUIRED)
 
@@ -52,7 +69,14 @@ target_include_directories(ImSharpNative
     ${imgui_SOURCE_DIR}/backends
     glad/include)
 
-target_link_libraries(ImSharpNative PUBLIC glfw)
+target_link_libraries(ImSharpNative PUBLIC glfw ImSharpFonts)
 
-install(TARGETS ImSharpNative
-  RUNTIME DESTINATION "bin")
+install(TARGETS ImSharpNative RUNTIME DESTINATION "bin")
+
+if(IMSHARP_NATIVE_EXAMPLE)
+
+  add_executable(ImSharpNativeExample imsharp_example.cpp)
+
+  target_link_libraries(ImSharpNativeExample PRIVATE ImSharpNative)
+
+endif(IMSHARP_NATIVE_EXAMPLE)

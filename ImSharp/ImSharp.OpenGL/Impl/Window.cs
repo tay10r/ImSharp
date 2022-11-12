@@ -9,66 +9,50 @@ namespace ImSharp.OpenGL.Impl
 {
     internal class Window : IWindow
     {
-        IntPtr _windowPointer;
-
-        IntPtr _context;
+        IntPtr _window;
 
         IntPtr _frame;
 
         public Window()
         {
-            _windowPointer = WindowSystem.glfwCreateWindow(640, 480, "", IntPtr.Zero, IntPtr.Zero);
-            if (_windowPointer == IntPtr.Zero)
+            _window = WindowSystem.imsharp_create_window();
+            if (_window == IntPtr.Zero)
             {
                 throw new WindowCreationException("Failed to create GLFW window.");
-            }
-
-            _context = WindowSystem.imsharp_setup(_windowPointer);
-            if (_context == IntPtr.Zero)
-            {
-                throw new WindowCreationException("Failed to create ImSharp context.");
             }
         }
 
         public void Dispose()
         {
-            if (_context!= IntPtr.Zero)
+            if (_window != IntPtr.Zero)
             {
-                WindowSystem.imsharp_cleanup(_context);
-                _context = IntPtr.Zero;
-            }
-
-            if (_windowPointer != IntPtr.Zero)
-            {
-                WindowSystem.glfwDestroyWindow(_windowPointer);
-                _windowPointer = IntPtr.Zero;
+                WindowSystem.imsharp_destroy_window(_window);
+                _window = IntPtr.Zero;
             }
         }
 
         public IComponentRenderer BeginFrame()
         {
-            _frame = WindowSystem.imsharp_begin_frame(_context);
+            _frame = WindowSystem.imsharp_begin_frame(_window);
 
-            return new ComponentRenderer(_context, _frame);
+            return new ComponentRenderer(_window, _frame);
         }
 
         public void EndFrame()
         {
-            WindowSystem.imsharp_end_frame(_context, _frame);
-
-            WindowSystem.glfwSwapBuffers(_windowPointer);
+            WindowSystem.imsharp_end_frame(_window, _frame);
         }
 
         public void Show()
         {
-            WindowSystem.glfwShowWindow(_windowPointer);
+            WindowSystem.imsharp_show_window(_window);
         }
 
         public void Hide()
         {
-            WindowSystem.glfwHideWindow(_windowPointer);
+            WindowSystem.imsharp_hide_window(_window);
         }
 
-        public bool ShouldClose { get { return WindowSystem.glfwWindowShouldClose(_windowPointer) != 0; } set { WindowSystem.glfwSetWindowShouldClose(_windowPointer, 1); } }
+        public bool ShouldClose { get { return WindowSystem.imsharp_window_should_close(_window) != 0; } set { WindowSystem.imsharp_set_window_should_close(_window, 1); } }
     }
 }

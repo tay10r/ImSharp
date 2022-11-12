@@ -24,6 +24,7 @@ public sealed class Program
 
         window.Show();
 
+        var isChecked = false;
         while (!window.ShouldClose)
         {
             windowSystem.PollEvents();
@@ -32,6 +33,21 @@ public sealed class Program
 
             renderer.BeginWidget("Test!");
 
+            renderer.Button("Button A");
+            renderer.SameLine();
+            renderer.Button("Button B");
+
+            renderer.Selectable("Option 1");
+            renderer.Selectable("Option 2");
+
+            renderer.Separator();
+
+            renderer.Checkbox("Test Checkbox", ref isChecked);
+
+            renderer.EndWidget();
+
+            renderer.BeginWidget("Style Editor");
+            renderer.ShowStyleEditor();
             renderer.EndWidget();
 
             window.EndFrame();
