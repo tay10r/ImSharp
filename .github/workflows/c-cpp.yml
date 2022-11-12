@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Install xorg-dev
-      run: apt-get install xorg-dev
+      run: sudo apt install -y xorg-dev
     - name: configure
       run: mkdir linux-build && cd linux-build && cmake ../ImSharp/ImSharp.OpenGL.Native
     - name: make
