@@ -1,4 +1,4 @@
-﻿using ImSharp.Vulkan;
+﻿using ImSharp.OpenGL;
 using System.IO;
 
 public sealed class Program
@@ -12,7 +12,7 @@ public sealed class Program
         dllPath = Path.Combine(dllPath, "..");
         dllPath = Path.Combine(dllPath, "..");
         dllPath = Path.Combine(dllPath, "..");
-        dllPath = Path.Combine(dllPath, "ImSharp.Vulkan.Native");
+        dllPath = Path.Combine(dllPath, "ImSharp.OpenGL.Native");
         dllPath = Path.Combine(dllPath, "install");
         dllPath = Path.Combine(dllPath, "bin");
         Environment.SetEnvironmentVariable("PATH", Environment.GetEnvironmentVariable("PATH") + ";" + dllPath);
@@ -28,7 +28,13 @@ public sealed class Program
         {
             windowSystem.PollEvents();
 
-            window.SwapBuffers();
+            var renderer = window.BeginFrame();
+
+            renderer.BeginWidget("Test!");
+
+            renderer.EndWidget();
+
+            window.EndFrame();
         }
     }
 }

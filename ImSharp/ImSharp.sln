@@ -5,11 +5,11 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImSharp.Core", "ImSharp.Core\ImSharp.Core.csproj", "{1C145CD4-A765-458D-89BA-4E8FA714769D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImSharp.Vulkan", "ImSharp.Vulkan\ImSharp.Vulkan.csproj", "{85EC99FB-3D45-4364-9EC0-B07447491E4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImSharp.OpenGL", "ImSharp.OpenGL\ImSharp.OpenGL.csproj", "{85EC99FB-3D45-4364-9EC0-B07447491E4B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImSharp.TestDoubles", "ImSharp.TestDoubles\ImSharp.TestDoubles.csproj", "{D6772E7E-65C5-429B-977A-92130D939F2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImSharp.Vulkan.Example", "ImSharp.Vulkan.Example\ImSharp.Vulkan.Example.csproj", "{C0DD06F9-723F-4861-986F-548824075422}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImSharp.OpenGL.Example", "ImSharp.OpenGL.Example\ImSharp.OpenGL.Example.csproj", "{C0DD06F9-723F-4861-986F-548824075422}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

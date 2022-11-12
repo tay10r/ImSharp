@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14.7)
 
-project(ImSharp_Vulkan_Native)
+project(ImSharp_OpenGL_Native)
 
 include(FetchContent)
 
@@ -18,14 +18,18 @@ FetchContent_Declare(imgui URL "https://github.com/ocornut/imgui/archive/refs/ta
 FetchContent_MakeAvailable(imgui)
 FetchContent_GetProperties(imgui)
 
-find_package(Vulkan REQUIRED)
+find_package(OpenGL REQUIRED)
 
-add_library(ImSharpVulkanNative
+add_library(ImSharpNative SHARED
   imsharp.hpp
   imsharp.cpp
+  glad/include/glad/glad.h
+  glad/include/KHR/khrplatform.h
+  glad/src/glad.c
   ${imgui_SOURCE_DIR}/imconfig.h
   ${imgui_SOURCE_DIR}/imgui.h
   ${imgui_SOURCE_DIR}/imgui.cpp
+  ${imgui_SOURCE_DIR}/imgui_demo.cpp
   ${imgui_SOURCE_DIR}/imgui_draw.cpp
   ${imgui_SOURCE_DIR}/imgui_internal.h
   ${imgui_SOURCE_DIR}/imgui_tables.cpp
@@ -35,12 +39,18 @@ add_library(ImSharpVulkanNative
   ${imgui_SOURCE_DIR}/imstb_truetype.h
   ${imgui_SOURCE_DIR}/backends/imgui_impl_glfw.h
   ${imgui_SOURCE_DIR}/backends/imgui_impl_glfw.cpp
-  ${imgui_SOURCE_DIR}/backends/imgui_impl_vulkan.h
-  ${imgui_SOURCE_DIR}/backends/imgui_impl_vulkan.cpp
+  ${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3.h
+  ${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3.cpp
   )
 
-target_include_directories(ImSharpVulkanNative
+target_include_directories(ImSharpNative
   PUBLIC
-    ${imgui_SOURCE_DIR})
+    ${imgui_SOURCE_DIR}
+  PRIVATE
+    ${imgui_SOURCE_DIR}/backends
+    glad/include)
 
-target_link_libraries(ImSharpVulkanNative PUBLIC glfw)
+target_link_libraries(ImSharpNative PUBLIC glfw)
+
+install(TARGETS ImSharpNative
+  RUNTIME DESTINATION "bin")

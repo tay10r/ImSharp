@@ -14,9 +14,12 @@ namespace ImSharp.TestDoubles
 
         public bool ShouldClose { get; set; }
 
-        public bool Visible { get; set; }
+        public void BeginFrame()
+        {
 
-        public void SwapBuffers()
+        }
+
+        public void EndFrame()
         {
             throw new NotImplementedException();
         }
@@ -48,6 +51,16 @@ namespace ImSharp.TestDoubles
             // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
+        }
+
+        public void Show()
+        {
+
+        }
+
+        public void Hide()
+        {
+
         }
     }
 }

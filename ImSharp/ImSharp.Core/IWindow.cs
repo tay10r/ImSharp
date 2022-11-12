@@ -13,9 +13,17 @@
         bool ShouldClose { get; set; }
 
         /// <summary>
-        /// Performs a buffer swap, updating the contents of the window.
+        /// Begins rendering a new frame.
         /// </summary>
-        void SwapBuffers();
+        /// <returns>
+        /// Used to render the UI components of the frame.
+        /// </returns>
+        IComponentRenderer BeginFrame();
+
+        /// <summary>
+        /// Completes the frame and performs a buffer swap, which updates the contents of the window.
+        /// </summary>
+        void EndFrame();
 
         /// <summary>
         /// Makes the window visible to the user. When a window is created for the first time, it is hidden.
