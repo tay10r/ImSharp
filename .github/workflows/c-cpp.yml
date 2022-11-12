@@ -13,9 +13,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Install xorg-dev
+    - name: Install Dependencies
       run: sudo apt install -y xorg-dev
-    - name: configure
+    - name: Configure CMake
       run: mkdir linux-build && cd linux-build && cmake ../ImSharp/ImSharp.OpenGL.Native
-    - name: make
-      run: make
+    - name: Compile
+      run: cd linux-build && make
