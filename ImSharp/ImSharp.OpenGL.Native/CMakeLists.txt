@@ -43,6 +43,8 @@ add_library(ImSharpNative SHARED
   ${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3.cpp
   )
 
+target_compile_definitions(ImSharpNative PRIVATE GLFW_INCLUDE_NONE=1)
+
 target_include_directories(ImSharpNative
   PUBLIC
     ${imgui_SOURCE_DIR}
