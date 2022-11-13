@@ -1,4 +1,4 @@
-#include "imsharp.hpp"
+#include "imsharp.h"
 
 int main()
 {
@@ -8,8 +8,8 @@ int main()
 
 	imsharp_show_window(window);
 
-	while (!imsharp_window_should_close(window)) {
-
+	while (!imsharp_window_should_close(window))
+	{
 		imsharp_poll_events();
 
 		auto* frame = imsharp_begin_frame(window);
@@ -27,5 +27,5 @@ int main()
 
 	imsharp_global_cleanup();
 
-    return 0;
+	return 0;
 }

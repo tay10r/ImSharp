@@ -1,8 +1,6 @@
-#include "imsharp.hpp"
+#include "imsharp.h"
 
 #include <glad/glad.h>
-
-#define GLFW_INCLUDE_NONE 1
 
 #include <GLFW/glfw3.h>
 
@@ -10,6 +8,8 @@
 
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
+
+#include <implot.h>
 
 #include <algorithm>
 #include <array>
@@ -86,6 +86,8 @@ struct imsharp_window final
 	GLFWwindow* window{nullptr};
 
 	ImGuiContext* imgui_context{nullptr};
+
+	ImPlotContext* implot_context{nullptr};
 
 	ImVec4 background_color = color(0xf0, 0xf0, 0xf0);
 
@@ -178,11 +180,13 @@ imsharp_window* imsharp_create_window()
 
 	ImGui_ImplOpenGL3_Init("#version 300 es");
 
+	auto* implot_context = ImPlot::CreateContext();
+
 	setup_geometry_style();
 
 	setup_light_style();
 
-	auto* api_window = new imsharp_window{window, imgui_context};
+	auto* api_window = new imsharp_window{window, imgui_context, implot_context};
 
 	load_fonts(api_window);
 
@@ -192,6 +196,8 @@ imsharp_window* imsharp_create_window()
 void imsharp_destroy_window(imsharp_window* window)
 {
 	glfwMakeContextCurrent(window->window);
+
+	ImPlot::DestroyContext(window->implot_context);
 
 	ImGui_ImplOpenGL3_Shutdown();
 	ImGui_ImplGlfw_Shutdown();
@@ -413,4 +419,18 @@ void imsharp_set_background_color(imsharp_window* window, unsigned char r, unsig
 	window->background_color.y = g / 255.0f;
 	window->background_color.z = b / 255.0f;
 	window->background_color.w = a / 255.0f;
+}
+
+/*******************
+ * ImPlot Bindings *
+ *******************/
+
+imsharp_boolean_int imsharp_begin_plot(struct imsharp_window* window, struct imsharp_frame* frame, const char* label)
+{
+	return ImPlot::BeginPlot(label);
+}
+
+void imsharp_end_plot(struct imsharp_window* window, struct imsharp_frame* frame)
+{
+	ImPlot::EndPlot();
 }
