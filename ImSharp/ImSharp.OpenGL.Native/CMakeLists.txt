@@ -90,6 +90,8 @@ add_library(ImSharpNative SHARED
   $<TARGET_OBJECTS:ImSharpNativeThirdParty>
   )
 
+set_target_properties(ImSharpNative PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
+
 target_compile_definitions(ImSharpNative PRIVATE GLFW_INCLUDE_NONE=1)
 
 target_include_directories(ImSharpNative
