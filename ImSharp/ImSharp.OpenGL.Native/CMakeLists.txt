@@ -24,23 +24,12 @@ FetchContent_Declare(implot URL "https://github.com/epezent/implot/archive/refs/
 FetchContent_MakeAvailable(implot)
 FetchContent_GetProperties(implot)
 
-include(CMakeRC.cmake)
 
-cmrc_add_resource_library(ImSharpFonts
-  fonts/JetBrainsMono/JetBrainsMonoNL-Bold.ttf
-  fonts/JetBrainsMono/JetBrainsMonoNL-Light.ttf
-  fonts/JetBrainsMono/JetBrainsMonoNL-Medium.ttf
-  fonts/JetBrainsMono/JetBrainsMonoNL-Regular.ttf
-  fonts/JetBrainsMono/JetBrainsMonoNL-Thin.ttf
-  fonts/OpenSans/OpenSans-Bold.ttf
-  fonts/OpenSans/OpenSans-Italic.ttf
-  fonts/OpenSans/OpenSans-Light.ttf
-  fonts/OpenSans/OpenSans-Medium.ttf
-  fonts/OpenSans/OpenSans-Regular.ttf
-)
+add_executable(ImSharpPackFont ${imgui_SOURCE_DIR}/misc/fonts/binary_to_compressed_c.cpp)
+add_subdirectory(fonts)
+
 
 find_package(OpenGL REQUIRED)
-
 
 add_library(ImSharpNativeThirdParty
   "glad/include/glad/glad.h"
@@ -81,11 +70,19 @@ add_library(ImSharpNative SHARED
   "include/imsharp.h"
   "include/imsharp_common.h"
   "include/imsharp_global.h"
+  "include/imsharp_app.h"
   "include/imsharp_window.h"
   "include/imsharp_frame.h"
   "include/imsharp_ui.h"
   "include/imsharp_ui_data_visualization.h"
   "src/imsharp.cpp"
+  "src/style_editor.cpp"
+  "src/global.cpp"
+  "src/ui.cpp"
+  "src/app.cpp"
+  "src/window.cpp"
+  "src/frame.cpp"
+  "src/style.hpp"
   $<TARGET_OBJECTS:ImSharpNativeThirdParty>
   )
 

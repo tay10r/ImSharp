@@ -1,5 +1,7 @@
 #pragma once
 
+#include "imsharp_common.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus */
@@ -30,6 +32,44 @@ IMSHARP_API void imsharp_set_next_widget_size(struct imsharp_window* window, str
 IMSHARP_API void imsharp_same_line(struct imsharp_window* window, struct imsharp_frame* frame);
 
 IMSHARP_API void imsharp_separator(struct imsharp_window* window, struct imsharp_frame* frame);
+
+IMSHARP_API void imsharp_int_slider(struct imsharp_window* window, struct imsharp_frame* frame,
+                                    const char* label,
+                                    int* x,
+                                    int min,
+                                    int max);
+
+IMSHARP_API void imsharp_float_slider(struct imsharp_window* window, struct imsharp_frame* frame,
+                                      const char* label,
+                                      float* x,
+                                      float min,
+                                      float max);
+
+IMSHARP_API void imsharp_color_edit_3(struct imsharp_window* window, struct imsharp_frame* frame,
+                                      const char* label,
+                                      float* r,
+                                      float* g,
+                                      float* b);
+
+IMSHARP_API void imsharp_color_edit_4(struct imsharp_window* window, struct imsharp_frame* frame,
+                                      const char* label,
+                                      float* r,
+                                      float* g,
+                                      float* b,
+                                      float* a);
+
+IMSHARP_API void imsharp_color_picker_3(struct imsharp_window* window, struct imsharp_frame* frame,
+                                        const char* label,
+                                        float* r,
+                                        float* g,
+                                        float* b);
+
+IMSHARP_API void imsharp_color_picker_4(struct imsharp_window* window, struct imsharp_frame* frame,
+                                        const char* label,
+                                        float* r,
+                                        float* g,
+                                        float* b,
+                                        float* a);
 
 /** Called to render a button.
  * 

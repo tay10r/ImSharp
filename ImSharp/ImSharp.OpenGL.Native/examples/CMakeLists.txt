@@ -17,3 +17,5 @@ function(add_imsharp_example name)
 endfunction(add_imsharp_example name)
 
 add_imsharp_example(minimal minimal.cpp)
+
+add_imsharp_example(style_editor style_editor.cpp)

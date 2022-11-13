@@ -1,3 +1,7 @@
+/** @file imsharp_window.h
+ *
+ * @brief The declarations for the window API.
+ */
 #pragma once
 
 #include "imsharp_common.h"
@@ -10,13 +14,29 @@ extern "C" {
  *
  * @return A pointer to the window data.
  * */
-IMSHARP_API struct imsharp_window* imsharp_create_window(void);
+IMSHARP_API struct imsharp_window* imsharp_create_window(imsharp_app* app);
 
 /** Releases resources allocated by the ImSharp native library.
  *
  * @param window The window object created by @ref imsharp_setup.
  * */
 IMSHARP_API void imsharp_destroy_window(struct imsharp_window* window);
+
+/** Gets the application that a window was created with.
+ *
+ * @param window The window to get the application of.
+ *
+ * @return The application that created this window.
+ */
+IMSHARP_API struct imsharp_app* imsharp_get_window_app(imsharp_window* window);
+
+/** Indicates whether or not the window was successfully created.
+ *
+ * @param window The window to check for successful creation.
+ *
+ * @return True if the window was created successfully, false otherwise.
+ */
+IMSHARP_API imsharp_boolean_int imsharp_window_created(imsharp_window* window);
 
 /** Indicates whether or not the window should close.
  *

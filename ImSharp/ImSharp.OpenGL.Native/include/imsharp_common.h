@@ -26,6 +26,8 @@ extern "C" {
  */
 typedef int imsharp_boolean_int;
 
+struct imsharp_app;
+
 struct imsharp_window;
 
 struct imsharp_frame;

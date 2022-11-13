@@ -16,9 +16,9 @@ int main()
 
 		auto* frame = imsharp_begin_frame(window);
 
-		imsharp_begin_widget(window, frame, "Test Widget");
+		imsharp_begin_widget(window, frame, "Style Editor");
 
-		imsharp_button(window, frame, "Click me!");
+		imsharp_show_style_editor(window, frame);
 
 		imsharp_end_widget(window, frame);
 
