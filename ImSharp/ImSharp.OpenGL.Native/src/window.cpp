@@ -120,6 +120,11 @@ namespace
 			load_fonts(1.0);
 		}
 
+		void make_context_current() const
+		{
+			glfwMakeContextCurrent(window_);
+		}
+
 		imsharp_app* get_app() const { return app_; }
 
 		bool created() const { return window_ != nullptr; }
@@ -246,6 +251,11 @@ void imsharp_destroy_window(imsharp_window* window)
 imsharp_app* imsharp_get_window_app(imsharp_window* window)
 {
 	return window_impl::cast(window)->get_app();
+}
+
+void imsharp_make_window_context_current(imsharp_window* window)
+{
+	window_impl::cast(window)->make_context_current();
 }
 
 imsharp_boolean_int imsharp_window_created(imsharp_window* window)

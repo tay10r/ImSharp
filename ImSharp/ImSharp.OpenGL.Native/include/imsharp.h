@@ -7,3 +7,4 @@
 #include "imsharp_frame.h"
 #include "imsharp_ui.h"
 #include "imsharp_ui_data_visualization.h"
+#include "imsharp_texture.h"

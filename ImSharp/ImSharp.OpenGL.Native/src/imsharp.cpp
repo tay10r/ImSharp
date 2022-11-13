@@ -62,42 +62,42 @@ namespace
 	}
 } // namespace
 
-void imsharp_set_next_widget_position(struct imsharp_window* window, struct imsharp_frame* frame, int x, int y)
+void imsharp_set_next_widget_position(struct imsharp_frame* frame, int x, int y)
 {
 	ImGui::SetNextWindowPos(ImVec2(x, y));
 }
 
-void imsharp_set_next_widget_size(struct imsharp_window* window, struct imsharp_frame* frame, int w, int h)
+void imsharp_set_next_widget_size(struct imsharp_frame* frame, int w, int h)
 {
 	ImGui::SetNextWindowSize(ImVec2(w, h));
 }
 
-void imsharp_same_line(struct imsharp_window* window, struct imsharp_frame* frame)
+void imsharp_same_line(struct imsharp_frame* frame)
 {
 	ImGui::SameLine();
 }
 
-void imsharp_separator(struct imsharp_window* window, struct imsharp_frame* frame)
+void imsharp_separator(struct imsharp_frame* frame)
 {
 	ImGui::Separator();
 }
 
-void imsharp_begin_widget(imsharp_window* context, imsharp_frame* frame, const char* title)
+void imsharp_begin_widget(imsharp_frame* frame, const char* title)
 {
 	ImGui::Begin(title);
 }
 
-void imsharp_end_widget(imsharp_window* context, imsharp_frame* frame)
+void imsharp_end_widget(imsharp_frame* frame)
 {
 	ImGui::End();
 }
 
-int imsharp_button(imsharp_window* window, imsharp_frame* frame, const char* label)
+int imsharp_button(imsharp_frame* frame, const char* label)
 {
 	return ImGui::Button(label) ? 1 : 0;
 }
 
-int imsharp_checkbox(struct imsharp_window* window, struct imsharp_frame* frame, const char* label,
+int imsharp_checkbox(imsharp_frame* frame, const char* label,
                      imsharp_boolean_int* checked)
 {
 	bool boolean_checked = *checked ? true : false;
@@ -109,42 +109,42 @@ int imsharp_checkbox(struct imsharp_window* window, struct imsharp_frame* frame,
 	return changed ? 1 : 0;
 }
 
-int imsharp_selectable(struct imsharp_window* window, struct imsharp_frame* frame, const char* label)
+int imsharp_selectable(imsharp_frame* frame, const char* label)
 {
 	return ImGui::Selectable(label);
 }
 
-int imsharp_begin_main_menu_bar(struct imsharp_window* window, struct imsharp_frame* frame)
+int imsharp_begin_main_menu_bar(imsharp_frame* frame)
 {
 	return ImGui::BeginMainMenuBar();
 }
 
-void imsharp_end_main_menu_bar(struct imsharp_window* window, struct imsharp_frame* frame)
+void imsharp_end_main_menu_bar(imsharp_frame* frame)
 {
 	ImGui::EndMainMenuBar();
 }
 
-int imsharp_begin_menu_bar(struct imsharp_window* window, struct imsharp_frame* frame)
+int imsharp_begin_menu_bar(imsharp_frame* frame)
 {
 	return ImGui::BeginMenuBar();
 }
 
-void imsharp_end_menu_bar(struct imsharp_window* window, struct imsharp_frame* frame)
+void imsharp_end_menu_bar(struct imsharp_frame* frame)
 {
 	ImGui::EndMenuBar();
 }
 
-int imsharp_begin_menu(struct imsharp_window* window, struct imsharp_frame* frame, const char* label)
+int imsharp_begin_menu(imsharp_frame* frame, const char* label)
 {
 	return ImGui::BeginMenu(label);
 }
 
-void imsharp_end_menu(struct imsharp_window* window, struct imsharp_frame* frame)
+void imsharp_end_menu(imsharp_frame* frame)
 {
 	ImGui::EndMenu();
 }
 
-int imsharp_menu_item(struct imsharp_window* window, struct imsharp_frame* frame, const char* label)
+int imsharp_menu_item(imsharp_frame* frame, const char* label)
 {
 	return ImGui::MenuItem(label);
 }
@@ -190,12 +190,12 @@ void imsharp_pop_style_color(imsharp_window* window, imsharp_frame* frame)
  * ImPlot Bindings *
  *******************/
 
-imsharp_boolean_int imsharp_begin_plot(struct imsharp_window* window, struct imsharp_frame* frame, const char* label)
+imsharp_boolean_int imsharp_begin_plot(struct imsharp_frame* frame, const char* label)
 {
 	return ImPlot::BeginPlot(label);
 }
 
-void imsharp_end_plot(struct imsharp_window* window, struct imsharp_frame* frame)
+void imsharp_end_plot(struct imsharp_frame* frame)
 {
 	ImPlot::EndPlot();
 }

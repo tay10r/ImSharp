@@ -16,11 +16,11 @@ int main()
 
 		auto* frame = imsharp_begin_frame(window);
 
-		imsharp_begin_widget(window, frame, "Test Widget");
+		imsharp_begin_widget(frame, "Test Widget");
 
-		imsharp_button(window, frame, "Click me!");
+		imsharp_button(frame, "Click me!");
 
-		imsharp_end_widget(window, frame);
+		imsharp_end_widget(frame);
 
 		imsharp_end_frame(frame);
 	}

@@ -32,6 +32,8 @@ struct imsharp_window;
 
 struct imsharp_frame;
 
+struct imsharp_texture;
+
 #ifdef __cplusplus
 }
 #endif

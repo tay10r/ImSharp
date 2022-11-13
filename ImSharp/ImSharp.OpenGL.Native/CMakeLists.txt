@@ -75,14 +75,18 @@ add_library(ImSharpNative SHARED
   "include/imsharp_frame.h"
   "include/imsharp_ui.h"
   "include/imsharp_ui_data_visualization.h"
+  "include/imsharp_texture.h"
   "src/imsharp.cpp"
   "src/style_editor.cpp"
   "src/global.cpp"
   "src/ui.cpp"
   "src/app.cpp"
+  "src/window.hpp"
   "src/window.cpp"
   "src/frame.cpp"
   "src/style.hpp"
+  "src/texture.hpp"
+  "src/texture.cpp"
   $<TARGET_OBJECTS:ImSharpNativeThirdParty>
   )
 
