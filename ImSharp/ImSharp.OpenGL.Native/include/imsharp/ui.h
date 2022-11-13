@@ -1,6 +1,6 @@
 #pragma once
 
-#include "imsharp_common.h"
+#include "imsharp/common.h"
 
 #ifdef __cplusplus
 extern "C" {

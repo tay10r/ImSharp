@@ -1,4 +1,4 @@
-#include "imsharp_global.h"
+#include "imsharp/global.h"
 
 #include <GLFW/glfw3.h>
 

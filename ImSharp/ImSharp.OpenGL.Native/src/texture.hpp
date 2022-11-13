@@ -1,6 +1,6 @@
 #pragma once
 
-#include "imsharp_texture.h"
+#include "imsharp/texture.h"
 
 #include <imgui.h>
 

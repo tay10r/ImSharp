@@ -1,4 +1,4 @@
-/** @file imsharp_common.h
+/** @file common.h
  *
  * @brief Contains code used across different header files.
  */

@@ -1,6 +1,6 @@
-#include "imsharp_window.h"
+#include "imsharp/window.h"
 
-#include "imsharp_frame.h"
+#include "imsharp/frame.h"
 
 #include <glad/glad.h>
 

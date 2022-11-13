@@ -1,6 +1,6 @@
 #pragma once
 
-#include "imsharp_window.h"
+#include "imsharp/window.h"
 
 #include <ImGui.h>
 

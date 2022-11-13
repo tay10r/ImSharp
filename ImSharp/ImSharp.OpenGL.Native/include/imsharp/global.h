@@ -1,10 +1,10 @@
-/** @file imsharp_global.h
+/** @file global.h
  *
  * @brief Contains the API for global state.
  */
 #pragma once
 
-#include "imsharp_common.h"
+#include "imsharp/common.h"
 
 #ifdef __cplusplus
 extern "C" {

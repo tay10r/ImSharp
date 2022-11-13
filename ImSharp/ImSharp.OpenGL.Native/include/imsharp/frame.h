@@ -1,10 +1,10 @@
-/** @file imsharp_frame.h
+/** @file frame.h
  *
  * @brief Contains the API for the rendering of a frame.
  */
 #pragma once
 
-#include "imsharp_common.h"
+#include "imsharp/common.h"
 
 #ifdef __cplusplus
 extern "C" {

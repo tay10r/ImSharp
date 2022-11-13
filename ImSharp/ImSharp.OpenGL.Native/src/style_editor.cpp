@@ -1,4 +1,6 @@
-#include "imsharp_ui.h"
+#include "imsharp/ui.h"
+
+#include "imsharp/frame.h"
 
 #include "style.hpp"
 
@@ -55,9 +57,9 @@ namespace
 	};
 } // namespace
 
-void imsharp_show_style_editor(imsharp_window* window, imsharp_frame* frame)
+void imsharp_show_style_editor(imsharp_frame* frame)
 {
-	const style_editor editor(window, frame);
+	const style_editor editor(imsharp_get_frame_window(frame), frame);
 
 	editor.render();
 }

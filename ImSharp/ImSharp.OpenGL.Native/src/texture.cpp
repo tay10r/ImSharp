@@ -1,6 +1,6 @@
 #include "texture.hpp"
 
-#include "imsharp_texture.h"
+#include "imsharp/texture.h"
 
 #include "window.hpp"
 

@@ -1,10 +1,10 @@
-/** @file imsharp_app.h
+/** @file app.h
  *
  * @brief Contains the declarations for the application object.
  */
 #pragma once
 
-#include "imsharp_common.h"
+#include "imsharp/common.h"
 
 #include <stdint.h>
 

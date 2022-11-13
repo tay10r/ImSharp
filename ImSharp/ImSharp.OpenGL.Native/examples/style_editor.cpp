@@ -16,11 +16,11 @@ int main()
 
 		auto* frame = imsharp_begin_frame(window);
 
-		imsharp_begin_widget(window, frame, "Style Editor");
+		imsharp_begin_widget(frame, "Style Editor");
 
-		imsharp_show_style_editor(window, frame);
+		imsharp_show_style_editor(frame);
 
-		imsharp_end_widget(window, frame);
+		imsharp_end_widget(frame);
 
 		imsharp_end_frame(frame);
 	}

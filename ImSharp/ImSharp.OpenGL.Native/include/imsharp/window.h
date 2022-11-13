@@ -4,7 +4,7 @@
  */
 #pragma once
 
-#include "imsharp_common.h"
+#include "imsharp/common.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -14,7 +14,7 @@ extern "C" {
  *
  * @return A pointer to the window data.
  * */
-IMSHARP_API struct imsharp_window* imsharp_create_window(imsharp_app* app);
+IMSHARP_API struct imsharp_window* imsharp_create_window(struct imsharp_app* app);
 
 /** Releases resources allocated by the ImSharp native library.
  *
@@ -28,7 +28,7 @@ IMSHARP_API void imsharp_destroy_window(struct imsharp_window* window);
  *
  * @return The application that created this window.
  */
-IMSHARP_API struct imsharp_app* imsharp_get_window_app(imsharp_window* window);
+IMSHARP_API struct imsharp_app* imsharp_get_window_app(struct imsharp_window* window);
 
 /** Indicates whether or not the window was successfully created.
  *
@@ -36,7 +36,7 @@ IMSHARP_API struct imsharp_app* imsharp_get_window_app(imsharp_window* window);
  *
  * @return True if the window was created successfully, false otherwise.
  */
-IMSHARP_API imsharp_boolean_int imsharp_window_created(imsharp_window* window);
+IMSHARP_API imsharp_boolean_int imsharp_window_created(struct imsharp_window* window);
 
 /** Indicates whether or not the window should close.
  *
