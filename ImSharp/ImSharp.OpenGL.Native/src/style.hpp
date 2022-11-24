@@ -2,7 +2,7 @@
 
 #include "imsharp/window.h"
 
-#include <ImGui.h>
+#include <imgui.h>
 
 namespace imsharp
 {
