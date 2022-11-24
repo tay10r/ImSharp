@@ -56,6 +56,10 @@ add_library(ImSharpNativeThirdParty
   "${implot_SOURCE_DIR}/implot_items.cpp"
   )
 
+if(NOT WIN32)
+  target_compile_options(ImSharpNativeThirdParty PRIVATE -fPIC)
+endif(NOT WIN32)
+
 target_include_directories(ImSharpNativeThirdParty
   PRIVATE
     ${imgui_SOURCE_DIR}
