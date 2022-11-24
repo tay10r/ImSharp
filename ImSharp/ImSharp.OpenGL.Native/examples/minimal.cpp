@@ -10,6 +10,8 @@ int main()
 
 	imsharp_show_window(window);
 
+	float slider = 2;
+
 	while (!imsharp_window_should_close(window))
 	{
 		imsharp_poll_events();
@@ -19,6 +21,10 @@ int main()
 		imsharp_begin_widget(frame, "Test Widget");
 
 		imsharp_button(frame, "Click me!");
+
+		imsharp_separator(frame);
+
+		imsharp_float_slider(frame, "Value", &slider, 0, 10);
 
 		imsharp_end_widget(frame);
 
